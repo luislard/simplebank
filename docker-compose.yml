@@ -25,3 +25,10 @@ services:
     volumes:
       - ./db/migrations:/migrations
 
+  sqlc:
+    image: kjconroy/sqlc
+    volumes:
+      - .:/src
+    working_dir: /src
+
+

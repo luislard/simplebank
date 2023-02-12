@@ -13,4 +13,10 @@ migratedown:
 init_migrate:
 	docker-compose run --rm migrate create -ext sql -dir /migrations -seq init_schema
 
-.PHONY: createdb dropdb postgres init_migrate migrateup migratedown
+sqlc_init:
+	docker-compose run --rm sqlc init
+
+sqlc:
+	docker-compose run --rm sqlc generate
+
+.PHONY: createdb dropdb postgres init_migrate migrateup migratedown sqlc_init
