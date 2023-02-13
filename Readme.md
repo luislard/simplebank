@@ -15,4 +15,11 @@ See: [DB_ORMs.md](docs%2FDB_ORMs.md)
 **TL;DR:** We will use SQLC. It's a command that uses a pseudo language 
 to create go code that speaks with the DB
 
+## Postgres driver
+See: github.com/lib/pq
+
+## Testing helper
+See https://github.com/stretchr/testify
+
+
 

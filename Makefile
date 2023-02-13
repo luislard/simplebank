@@ -19,4 +19,7 @@ sqlc_init:
 sqlc:
 	docker-compose run --rm sqlc generate
 
-.PHONY: createdb dropdb postgres init_migrate migrateup migratedown sqlc_init
+test:
+	docker-compose exec api bash -c "go test -v -cover ./..."
+
+.PHONY: createdb dropdb postgres init_migrate migrateup migratedown sqlc_init test
