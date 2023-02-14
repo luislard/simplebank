@@ -21,5 +21,6 @@ See: github.com/lib/pq
 ## Testing helper
 See https://github.com/stretchr/testify
 
-
+## How to debug a deadlock in the database
+See: [Solving A DeadLock.md](docs%2FSolvingADeadLock.md)
 
