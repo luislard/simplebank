@@ -22,4 +22,6 @@ sqlc:
 test:
 	docker-compose exec api bash -c "go test -v -cover ./..."
 
-.PHONY: createdb dropdb postgres init_migrate migrateup migratedown sqlc_init test
+pgterm:
+	docker-compose exec pg psql -U root -d simple_bank
+.PHONY: createdb dropdb postgres init_migrate migrateup migratedown sqlc_init test pgterm
