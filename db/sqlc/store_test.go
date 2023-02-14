@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"github.com/stretchr/testify/require"
-	"runtime"
 	"testing"
 )
 
@@ -24,7 +23,6 @@ func TestTransferTx(t *testing.T) {
 	results := make(chan TransferTxResult)
 
 	for i := 0; i < n; i++ {
-		fmt.Println("Routines:", runtime.NumGoroutine())
 		go func() {
 			result, err := store.TransferTx(context.Background(), TransferTxParams{
 				FromAccountID: account1.ID,
