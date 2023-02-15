@@ -24,3 +24,5 @@ See https://github.com/stretchr/testify
 ## How to debug a deadlock in the database
 See: [Solving A DeadLock.md](docs%2FSolvingADeadLock.md)
 
+## Theory of Transaction Isolation Level
+See: [TransactionIsolationLevel.md](docs%2FTransactionIsolationLevel.md)
