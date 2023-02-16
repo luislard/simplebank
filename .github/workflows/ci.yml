@@ -7,6 +7,7 @@ jobs:
   build:
     name: Test
     runs-on: ubuntu-latest
+    container: golang:1.18
     services:
       # Label used to access the service container
       pg:
