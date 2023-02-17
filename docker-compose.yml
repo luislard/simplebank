@@ -8,7 +8,7 @@ services:
       - .:/usr/src/app
     working_dir: /usr/src/app
     ports:
-      - "38000:38000"
+      - "8080:8080"
   pg:
     image: postgres:12-alpine
     ports:

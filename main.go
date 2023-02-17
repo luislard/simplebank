@@ -1,29 +1,30 @@
 package main
 
 import (
-	"fmt"
+	"database/sql"
+	_ "github.com/lib/pq"
+	"github.com/luislard/simplebank/api"
+	db "github.com/luislard/simplebank/db/sqlc"
 	"log"
-	"net/http"
-	"os"
-	"runtime"
 )
 
-func homeHandler(w http.ResponseWriter, r *http.Request) {
-	myOS, myArch := runtime.GOOS, runtime.GOARCH
-	inContainer := "inside"
-	if _, err := os.Lstat("/.dockerenv"); err != nil && os.IsNotExist(err) {
-		inContainer = "outside"
-	}
-	w.Header().Set("Content-Type", "text/plain")
-	w.WriteHeader(http.StatusOK)
-	_, _ = fmt.Fprintf(w, "Hello, %s!\n", r.UserAgent())
-	_, _ = fmt.Fprintf(w, "I'm running on %s/%s.\n", myOS, myArch)
-	_, _ = fmt.Fprintf(w, "I'm running %s of a container.\n", inContainer)
-}
+const (
+	dbDriver      = "postgres"
+	dbSource      = "postgres://root:secret@pg:5432/simple_bank?sslmode=disable"
+	serverAddress = "0.0.0.0:8080"
+)
+
 func main() {
-	http.HandleFunc("/", homeHandler)
-	err := http.ListenAndServe(":38000", nil)
+	conn, err := sql.Open(dbDriver, dbSource)
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatal("cannot connect to db:", err)
+	}
+
+	store := db.NewStore(conn)
+	server := api.NewServer(store)
+
+	err = server.Start(serverAddress)
+	if err != nil {
+		log.Fatal("cannot start server:", err)
 	}
 }

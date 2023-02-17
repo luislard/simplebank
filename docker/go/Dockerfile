@@ -12,7 +12,7 @@ RUN go mod download
 RUN go build -o /godocker
 
 # Tells Docker which network port your container listens on
-EXPOSE 38000
+EXPOSE 8080
 
 # Specifies the executable command that runs when the container starts
 CMD [ "/godocker" ]
