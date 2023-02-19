@@ -20,8 +20,10 @@ sqlc:
 	docker-compose run --rm sqlc generate
 
 test:
-	docker-compose exec api bash -c "go test -v -cover ./..."
+	go test -v -cover ./...
 
 pgterm:
 	docker-compose exec pg psql -U root -d simple_bank
-.PHONY: createdb dropdb postgres init_migrate migrateup migratedown sqlc_init test pgterm
+server:
+	go run ./main.go
+.PHONY: createdb dropdb postgres init_migrate migrateup migratedown sqlc_init test pgterm server

@@ -7,7 +7,7 @@ jobs:
   build:
     name: Test
     runs-on: ubuntu-latest
-    container: golang:1.18
+#    container: golang:1.18
     services:
       # Label used to access the service container
       pg:
@@ -27,14 +27,17 @@ jobs:
         ports:
           - 5432:5432
     steps:
-#      - name: Set up Go 1.x
-#        uses: actions/setup-go@v3
-#        with:
-#          go-version: ^1.18
-#        id: go
+      - name: Set up Go 1.x
+        uses: actions/setup-go@v3
+        with:
+          go-version: ^1.18
+        id: go
 
       - name: Check out code into the Go module directory
         uses: actions/checkout@v3
+
+      - name: Prepare Env File
+        run: cp app.env.example app.env
 
       - name: Get dependencies
         run: |

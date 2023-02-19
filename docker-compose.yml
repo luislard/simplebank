@@ -1,14 +1,14 @@
 services:
-  api:
-#    image: golang:1.18
-    build:
-      context: .
-      dockerfile: docker/go/Dockerfile
-    volumes:
-      - .:/usr/src/app
-    working_dir: /usr/src/app
-    ports:
-      - "8080:8080"
+#  api:
+##    image: golang:1.18
+#    build:
+#      context: .
+#      dockerfile: docker/go/Dockerfile
+#    volumes:
+#      - .:/usr/src/app
+#    working_dir: /usr/src/app
+#    ports:
+#      - "8080:8080"
   pg:
     image: postgres:12-alpine
     ports:
