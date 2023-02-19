@@ -21,6 +21,12 @@ See: github.com/lib/pq
 ## Testing helper
 See https://github.com/stretchr/testify
 
+## Reading env files and environment variables
+We are using Viper https://github.com/spf13/viper
+
+## API test mocks
+We are using go mock https://github.com/golang/mock
+
 ## How to debug a deadlock in the database
 See: [Solving A DeadLock.md](docs%2FSolvingADeadLock.md)
 

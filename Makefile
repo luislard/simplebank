@@ -26,4 +26,8 @@ pgterm:
 	docker-compose exec pg psql -U root -d simple_bank
 server:
 	go run ./main.go
-.PHONY: createdb dropdb postgres init_migrate migrateup migratedown sqlc_init test pgterm server
+
+mock:
+	mockgen --destination db/mock/store.go --package mockdb --build_flags=--mod=mod github.com/luislard/simplebank/db/sqlc Store
+
+.PHONY: createdb dropdb postgres init_migrate migrateup migratedown sqlc_init test pgterm server mock
