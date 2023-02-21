@@ -32,3 +32,6 @@ See: [Solving A DeadLock.md](docs%2FSolvingADeadLock.md)
 
 ## Theory of Transaction Isolation Level
 See: [TransactionIsolationLevel.md](docs%2FTransactionIsolationLevel.md)
+
+## The list of validators
+https://github.com/go-playground/validator#baked-in-validations 
