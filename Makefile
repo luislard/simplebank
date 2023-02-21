@@ -7,8 +7,14 @@ postgres:
 migrateup:
 	docker-compose run --rm migrate -path /migrations -database "postgres://root:secret@pg:5432/simple_bank?sslmode=disable" -verbose up
 
+migrateup1:
+	docker-compose run --rm migrate -path /migrations -database "postgres://root:secret@pg:5432/simple_bank?sslmode=disable" -verbose up 1
+
 migratedown:
 	docker-compose run --rm migrate -path /migrations -database "postgres://root:secret@pg:5432/simple_bank?sslmode=disable" -verbose down
+
+migratedown1:
+	docker-compose run --rm migrate -path /migrations -database "postgres://root:secret@pg:5432/simple_bank?sslmode=disable" -verbose down 1
 
 init_migrate:
 	docker-compose run --rm migrate create -ext sql -dir /migrations -seq init_schema
@@ -30,4 +36,4 @@ server:
 mock:
 	mockgen --destination db/mock/store.go --package mockdb --build_flags=--mod=mod github.com/luislard/simplebank/db/sqlc Store
 
-.PHONY: createdb dropdb postgres init_migrate migrateup migratedown sqlc_init test pgterm server mock
+.PHONY: createdb dropdb postgres init_migrate migrateup migratedown sqlc_init test pgterm server mock migratedown1 migrateup1
