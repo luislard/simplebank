@@ -1,8 +1,6 @@
 # Simple Bank App
 
-This is my first go REST application
-
-
+This is my first application in GO
 I do this because I want to learn Go.
 
 # Notes:
@@ -14,6 +12,11 @@ See: [DB_ORMs.md](docs%2FDB_ORMs.md)
 
 **TL;DR:** We will use SQLC. It's a command that uses a pseudo language 
 to create go code that speaks with the DB
+
+### Which AUTH system should we use, JWT or PASETO?
+See [documentation](docs%2FAuthentication.md) explaining the difference between:
+- JWT
+- PASETO
 
 ## Postgres driver
 See: github.com/lib/pq
