@@ -38,3 +38,7 @@ See: [TransactionIsolationLevel.md](docs%2FTransactionIsolationLevel.md)
 
 ## The list of validators
 https://github.com/go-playground/validator#baked-in-validations 
+
+## Wait for other service to be fully running
+In the past docker recommended to use tools like: https://github.com/eficode/wait-for
+Nowadays, this is different we need to read the updated docs
