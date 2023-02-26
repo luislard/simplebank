@@ -1,6 +1,7 @@
 services:
   api:
-    image: simplebank
+#    image: simplebank
+    build: .
     ports:
       - "8080:8080"
     environment:
@@ -9,6 +10,11 @@ services:
       SERVER_ADDRESS: $SERVER_ADDRESS
       TOKEN_SYMMETRIC_KEY: $TOKEN_SYMMETRIC_KEY
       ACCESS_TOKEN_DURATION: $ACCESS_TOKEN_DURATION
+    depends_on:
+      - pg
+    entrypoint: ["/app/wait-for.sh", "pg:5432", "--", "/app/start.sh"]
+    command: ["/app/main"]
+
   pg:
     image: postgres:12-alpine
     ports:
@@ -16,6 +22,7 @@ services:
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: secret
+      POSTGRES_DB: simple_bank
 
   pgadmin:
     image: dpage/pgadmin4
