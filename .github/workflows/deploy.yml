@@ -25,5 +25,6 @@ jobs:
           ECR_REPOSITORY: simplebank
           IMAGE_TAG: ${{ github.sha }}
         run: |
+          cp app.env.example app.env
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push -a $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
