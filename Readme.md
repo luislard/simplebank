@@ -42,3 +42,9 @@ https://github.com/go-playground/validator#baked-in-validations
 ## Wait for other service to be fully running
 In the past docker recommended to use tools like: https://github.com/eficode/wait-for
 Nowadays, this is different we need to read the updated docs
+
+## K8s Cluster Architecture
+![k8s_architecture.png](docs%2Fimg%2Fk8s_architecture.png)
+
+## How to create an EKS cluster
+See [EKS.md](docs%2FEKS.md)
